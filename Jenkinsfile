@@ -15,7 +15,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/akash-devops2/sample-java-sonar-nexus.git', branch: 'main'
+                git url: 'https://github.com/AbhilashJSR/java-sonar-nexus.git', branch: 'main'
             }
         }
 
