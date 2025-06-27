@@ -44,6 +44,12 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'nexus-creds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh '''
+                    NEXUS_URL=http://13.232.131.185:8081
+          REPO=maven-releases
+          GROUP_ID=com.example
+          ARTIFACT_ID=myapp
+          VERSION=1.0.0
+          PACKAGING=jar
                         curl -v -u $USERNAME:$PASSWORD --upload-file $FILE \
                         $NEXUS_URL/repository/$REPO/$(echo $GROUP_ID | tr '.' '/')/$ARTIFACT_ID/$VERSION/$ARTIFACT_ID-$VERSION.$PACKAGING
                     '''
